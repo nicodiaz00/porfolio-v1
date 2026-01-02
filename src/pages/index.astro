@@ -1,7 +1,13 @@
 ---
 import '../styles/global.css';  // <--- ¡Esta es la línea clave!
+import '@fontsource/krona-one';
+import '@fontsource/poppins';  //
+import '@fontsource/roboto-mono';
 import Navbar from '../components/Navbar.astro';
+import NavBarMobile from '../components/NavBarMobile.astro';
 import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/Section.astro';
 ---
 
 <html lang="en">
@@ -13,8 +19,16 @@ import Hero from '../components/Hero.astro';
 		<title>Astro</title>
 	</head>
 	<body>
-		<Navbar />
+		<div class="hidden md:block">
+        <Navbar/>
+    </div>
+
+    <div class="md:hidden">
+        <NavBarMobile />
+    </div>
 		<Hero />
+		<Section/>
+		<Footer />
 		
 	</body>
 </html>

@@ -1,2 +1,14 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@theme {
+
+    --font-mono: "Roboto Mono", monospace;
+    
+    --font-sans: "Poppins", sans-serif;
+  /* Opción A: Crear una clase nueva solo para esta fuente */
+  --font-krona: "Krona One", sans-serif;
+
+  /* Opción B: Si quisieras que sea la fuente de TODO el sitio (No recomendado para Krona) */
+  /* --font-sans: "Krona One", sans-serif; */
+}
