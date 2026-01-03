@@ -3,12 +3,13 @@
 const projects = [
   {
     id: 1, // IMPORTANTE: El ID es vital ahora
-    title: "Practiva Profesional",
-    description: "Panel de ventas.", // Descripción corta para la card
-    longDescription: "Este proyecto es un panel completo donde los usuarios pueden ver métricas en tiempo real, gestionar inventario y exportar reportes a PDF. Fue un desafío manejar el estado global.",
+    title: "Practica Profesional",
+    description: "Aplicacion web que permite la valoracion de libros.", // Descripción corta para la card
+    longDescription: "Aplicacion web desarrollada para la Biblioteca Julio Cortazar de la Escuela Nacional 'Ernesto Sábato',con el objetivo de fomentar la lectura, la crítica literaria y la participación comunitaria entre alumnos y docentes.",
+    PrincipalFunctionalities: "Los usuarios pueden registrarse e iniciar sesión para valorar libros, dejar comentarios y ver recomendaciones personalizadas basadas en sus preferencias de lectura. Los administradores pueden gestionar el catálogo de libros, moderar comentarios y generar informes de actividad.",
     image: "/images/dashboard.webp",
-    tags: ["React", "Tailwind"],
-    link: "https://github.com/tu-usuario/proyecto1"
+    tags: ["Express.js", "PostgreSQL", "JWT", "React", "Supabase", "Material UI"],
+    link: "https://github.com/TurcoDev/sababook-back"
   },
   {
     id: 2,
@@ -59,6 +60,7 @@ const projects = [
           <img src={project.image} class="w-full rounded-lg mb-4" alt="Detalle" />
           
           <p class="py-4 text-base">{project.longDescription}</p>
+          <p class="py-4 text-base">{project.PrincipalFunctionalities}</p>
           
           <div class="divider">Tecnologías</div>
           
