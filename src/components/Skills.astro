@@ -1,0 +1,72 @@
+---
+// src/components/Skills.astro
+
+// 1. Aquí definimos tus datos. ¡Es lo único que tocarás en el futuro!
+
+const skills2 = [ {
+    name: ".NET Core"
+},
+{
+    name: "C#"
+},
+{
+    name: "PHP"
+},
+{
+    name: "SQL Server"
+},
+{
+    name: "Sqlite"
+},
+{
+    name: "PostgreSQL"
+},
+{
+    name: "React"
+},
+{
+    name: "Tailwind"
+},
+{
+    name: "JavaScript"
+},
+{
+    name: "Git"
+},
+{
+    name: "GitHub"  
+},
+{
+    name: "Astro"
+},
+{    name: "Bootstrap"  
+}
+,{    name: "Visual Studio"  
+},
+{    name: "VS Code"  
+}
+]
+
+
+---
+
+<section id="tecnologias" class="min-h-[20vh] bg-base-200 py-20">
+  <div class="container mx-auto px-4 min-h-[20vh] py-20">
+    
+    <h2 class="text-xl md:text-2xl font-krona text-center mb-10">
+      TECNOLOGÍAS Y HERRAMIENTAS
+    </h2>
+
+    <div class="space-y-12">
+        <div class="flex flex-row flex-wrap justify-center gap-4">
+            {skills2.map((skill) => (
+            
+               
+                <span class="inline-flex items-center justify-center w-32 h-10 rounded-md bg-gray-400/10 px-2 text-xs font-medium text-gray-400 inset-ring inset-ring-gray-400/20"> {skill.name}</span>
+            
+            ))}
+        </div>
+    </div>
+
+  </div>
+</section>
