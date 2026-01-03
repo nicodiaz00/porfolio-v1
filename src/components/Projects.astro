@@ -1,0 +1,88 @@
+---
+// 1. Agregamos más info al arreglo para mostrar en el modal
+const projects = [
+  {
+    id: 1, // IMPORTANTE: El ID es vital ahora
+    title: "Practiva Profesional",
+    description: "Panel de ventas.", // Descripción corta para la card
+    longDescription: "Este proyecto es un panel completo donde los usuarios pueden ver métricas en tiempo real, gestionar inventario y exportar reportes a PDF. Fue un desafío manejar el estado global.",
+    image: "/images/dashboard.webp",
+    tags: ["React", "Tailwind"],
+    link: "https://github.com/tu-usuario/proyecto1"
+  },
+  {
+    id: 2,
+    title: "App del Clima",
+    description: "API de clima.",
+    longDescription: "Aplicación que conecta con OpenWeatherMap. Implementé geolocalización para detectar la ciudad del usuario automáticamente y guardar preferencias en LocalStorage.",
+    image: "/images/weather.webp",
+    tags: ["JS", "CSS"],
+    link: "https://github.com/tu-usuario/proyecto2"
+  }
+];
+---
+
+<section id="proyectos" class="py-10 px-4">
+  <h2 class="text-xl md:text-2xl font-krona text-center mb-10">PROYECTOS</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+    
+    {projects.map((project) => (
+      <>
+      
+      <article class="card bg-base-100 shadow-xl border border-base-200">
+        <figure>
+          <img src={project.image} alt={project.title} class="aspect-video object-cover" />
+        </figure>
+        
+        <div class="card-body">
+          <h3 class="card-title">{project.title}</h3>
+          <p class="text-sm">{project.description}</p>
+          
+          <div class="card-actions justify-end mt-4">
+            <button class="btn btn-primary btn-sm" onclick={`modal_${project.id}.showModal()`}>
+              Ver más info
+            </button>
+          </div>
+        </div>
+      </article>
+
+      
+      
+      <dialog id={`modal_${project.id}`} class="modal">
+        <div class="modal-box w-11/12 max-w-2xl"> <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+          </form>
+          
+          <h3 class="font-bold text-2xl mb-4">{project.title}</h3>
+          
+          <img src={project.image} class="w-full rounded-lg mb-4" alt="Detalle" />
+          
+          <p class="py-4 text-base">{project.longDescription}</p>
+          
+          <div class="divider">Tecnologías</div>
+          
+          <div class="flex gap-2 flex-wrap mb-6">
+             {project.tags.map(tag => (
+               <span class="badge badge-primary badge-outline">{tag}</span>
+             ))}
+          </div>
+
+          <div class="modal-action">
+             <a href={project.link} target="_blank" class="btn btn-primary">
+               Ir al Repositorio
+             </a>
+             <form method="dialog">
+               <button class="btn">Cerrar</button>
+             </form>
+          </div>
+        </div>
+        
+        <form method="dialog" class="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
+      </>
+    ))}
+  </div>
+</section>

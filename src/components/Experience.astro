@@ -1,0 +1,54 @@
+---
+// src/components/Experience.astro
+---
+
+<section id="experiencia" class="py-10 min-h-[40vh] bg-base-200">
+  <div class="container mx-auto px-4">
+    
+    <h2 class="text-xl md:text-2xl font-bold font-krona text-center mb-10">
+      EXPERIENCIA
+    </h2>
+
+    <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+      
+      <li>
+        <div class="timeline-middle">
+          <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/40">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+          </div>
+        </div>
+        
+        <div class="timeline-start md:text-end mb-10 md:pr-10">
+          
+          <time class="font-mono italic opacity-60 text-sm">Ago 2025 - Dic 2025</time>
+          
+          <div class="text-xl font-black font-krona text-primary mt-2">
+           Practica Profesional
+          </div>
+          
+          <div class="text-lg font-bold opacity-80 flex md:justify-end items-center gap-2">
+             Biblioteca Julio Cortazar de la Escuela Nacional 'Ernesto Sábato'
+             
+          </div>
+
+          <ul class="list-disc list-inside mt-4 text-left md:text-right opacity-80 space-y-1">
+            <li>Aplicacion web que permite la valoracion de libros.</li>
+            <li>Implementación de API REST con Express.js y Supabase/PostgreSQL.</li>
+            <li>Relevamiento de requerimientos con el cliente.</li>
+            
+          </ul>
+
+          <div class="flex flex-wrap md:justify-end gap-2 mt-4">
+            <span class="badge badge-outline badge-primary font-mono text-xs">Node js</span>
+            <span class="badge badge-outline badge-primary font-mono text-xs">Express.js (Node.js)</span>
+            <span class="badge badge-outline badge-primary font-mono text-xs">JWT</span>
+          </div>
+
+        </div>
+        <hr class="bg-primary"/>
+      </li>
+
+      </ul>
+
+  </div>
+</section>
