@@ -1,0 +1,68 @@
+---
+const { images = [], id = 'carousel' } = Astro.props;
+const imgData = JSON.stringify(images);
+---
+{images.length === 0 ? (
+  <div class="w-full h-48 bg-gray-100 flex items-center justify-center rounded-lg">No images</div>
+) : (
+  <div data-carousel-id={id} data-images={imgData} class="w-full">
+    <div class="relative">
+      <img id={`${id}_img`} src={images[0]} class="w-full rounded-lg mb-4 object-cover aspect-video" alt="Detalle" />
+      <button class="btn btn-circle btn-sm absolute left-2 top-1/2 -translate-y-1/2" data-action="prev" aria-label="Anterior">❮</button>
+      <button class="btn btn-circle btn-sm absolute right-2 top-1/2 -translate-y-1/2" data-action="next" aria-label="Siguiente">❯</button>
+    </div>
+
+    <div class="flex justify-center gap-2 mt-2">
+      {images.map((img, idx) => (
+        <button type="button" class="btn btn-xs" data-thumb-index={idx} aria-label={`Ir a imagen ${idx+1}`}>{idx+1}</button>
+      ))}
+    </div>
+  </div>
+)}
+
+<script>
+  (function(){
+    function initCarousel(container){
+      if (!container || container.dataset.carouselInitialized) return;
+      const imgs = JSON.parse(container.dataset.images || '[]');
+      if (!imgs.length) return;
+      let idx = 0;
+      const imgEl = container.querySelector('img[id$="_img"]');
+      function setImg(i){
+        idx = (i + imgs.length) % imgs.length;
+        if (imgEl) imgEl.src = imgs[idx];
+        container.dataset.currentIndex = idx;
+        // update active thumb styles
+        container.querySelectorAll('[data-thumb-index]').forEach(btn => {
+          btn.classList.toggle('btn-active', Number(btn.dataset.thumbIndex) === idx);
+        });
+      }
+      const prev = container.querySelector('[data-action="prev"]');
+      const next = container.querySelector('[data-action="next"]');
+      prev && prev.addEventListener('click', ()=> setImg(idx-1));
+      next && next.addEventListener('click', ()=> setImg(idx+1));
+      container.querySelectorAll('[data-thumb-index]').forEach(btn=>{
+        btn.addEventListener('click', ()=> setImg(Number(btn.dataset.thumbIndex)));
+      });
+      // mark initialized and set initial state
+      container.dataset.carouselInitialized = '1';
+      setImg(0);
+    }
+
+    function initAll(){
+      document.querySelectorAll('[data-carousel-id]').forEach(initCarousel);
+    }
+
+    if (document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', initAll);
+    } else initAll();
+
+    // Observe DOM changes to handle dialogs moved into body or added later
+    const mo = new MutationObserver((mutations)=>{
+      for (const m of mutations){
+        if (m.addedNodes.length) initAll();
+      }
+    });
+    mo.observe(document.body, {childList: true, subtree: true});
+  })();
+</script>
