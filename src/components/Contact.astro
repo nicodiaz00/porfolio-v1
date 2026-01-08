@@ -1,0 +1,37 @@
+---
+import SocialNetworks from "./SocialNetworks.astro"
+---
+
+
+<section id="contacto" class="min-h-[80vh] bg-base-200 py-10">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-xl md:text-2xl font-bold font-krona text-center mb-10">CONTACTO</h2>
+        <div class="flex flex-col lg:flex-row gap-8">
+            <div class="flex flex-col lg:w-1/2">
+                <p class="text-xl md:text-2xl font-krona mb-10">¿Tenes un proyecto en mente? Hablemos.</p>
+                <SocialNetworks />
+                
+                
+            </div>
+            <div class="mt-6 lg:mt-0 lg:w-1/2">
+                <form action="https://formspree.io/f/mayvlrpl" method="POST" class="flex flex-col gap-4">
+                    <div>
+                        <label for="name" class="block mb-1 font-semibold">Nombre:</label>
+                        <input type="text" id="name" name="name" required class="input input-bordered w-full" />
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-1 font-semibold">Email:</label>
+                        <input type="email" id="email" name="email" required class="input input-bordered w-full" />
+                    </div>
+                    <div>
+                        <label for="message" class="block mb-1 font-semibold">Mensaje:</label>
+                        <textarea id="message" name="message" rows="5" required class="textarea textarea-bordered w-full"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
+        </div>
+
+    </div>
+</section>
